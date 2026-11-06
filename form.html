@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа шахів - Контакти</title>
+    
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">Школа шахів</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="info.html">Про гру</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="form.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Зворотний зв'язок</h2>
+        
+        <form class="feedback" id="feedback" action="#" method="post">
+            <fieldset>
+                <legend>Залиште коментар</legend>
+                
+                <label for="name">Ім’я</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Електронна пошта</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+
+                <label for="phone">Номер телефону (необов'язково)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+380..." pattern="^\+380\d{9}$">
+                
+                <label for="topic">Тема</label>
+                <select id="topic" name="topic">
+                    <option value="question">Запитання</option>
+                    <option value="idea">Пропозиція</option>
+                    <option value="other">Інше</option>
+                </select>
+                
+                <p>Оцініть сайт:</p>
+                <label><input type="radio" name="rate" value="5" checked> Чудово</label>
+                <label><input type="radio" name="rate" value="3"> Добре</label>
+                <label><input type="radio" name="rate" value="1"> Потрібно покращити</label>
+                
+                <label for="message">Коментар</label>
+                <textarea id="message" name="message" rows="5" maxlength="500" required></textarea>
+                
+                <label><input type="checkbox" name="agree" required> Погоджуюся з обробкою даних</label>
+                
+                <button type="submit">Надіслати</button>
+            </fieldset>
+        </form>
+        <p id="result" style="margin-top: 20px; font-weight: bold; color: #2a9d8f;"></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Школа шахів. Автор: Шахова Д.А. (група ПНІ-24)</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("feedback");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = form.elements["name"].value;
+            document.getElementById("result").textContent =
+                "Дякуємо, " + name + "! Ваш коментар отримано.";
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
